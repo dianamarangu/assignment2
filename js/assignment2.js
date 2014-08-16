@@ -6,15 +6,17 @@ console.log(data[3])
 
 //Using the array "map" functionality, create a variable "city_names" that has the name of each city (4 pts.)
 var city_names = data.map(function(d) {return d.city});
+console.log(city_names)
 
 //Using the array "map" functionality, create a variable "populations" that the population of each city (4 pts.)
 var populations = data.map(function(d) {return d.pop});
+console.log(populations)
 
 //Sort the data variable by median age (4 pts.)
 
 data.sort(function(a,b) {return Number(a.age) > Number(b.age)});
 
-//Based on this, what are the cities with the youngest/oldest median ages? (2 pts.) = Seattle,Spokane,Tacoma,Vancouver,Bellevue e.t.c.
+//Based on this, what are the cities with the youngest/oldest median ages? (2 pts.) = Seattle,Spokane,Tacoma,Vancouver,Bellevue e.t.c. though I'm not sure if this really works seems to be the same as the earlier cities..
 
 console.log("The cities with the youngest median age is " + city_names)
 
