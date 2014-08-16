@@ -1,52 +1,42 @@
-$( "data.js" ).load( "assignment2/index.html", function() {
-  alert( "Load was performed." );
-});
+//What is the length of the "data" array (2 pts.)? =100
+console.log('the length of my data is ' + data.length)
 
-//What is the length of the "data" array (2 pts.)? 
-data.length
-
-//What is the fourth element of the array *hint: remember how indexing for arrays beings (2 pts.)
-console.log(data[3])
+//What is the fourth element of the array *hint: remember how indexing for arrays beings (2 pts.) = Object {city: "Vancouver", pop: "161,791", age: "35.9", males: "78,884", females: "82,907"} 
+console.log(data[3]) 
 
 //Using the array "map" functionality, create a variable "city_names" that has the name of each city (4 pts.)
-var city_names = city.map();
+var city_names = data.map(function(d) {return d.city});
 
 //Using the array "map" functionality, create a variable "populations" that the population of each city (4 pts.)
-var populations = city.map();
+var populations = data.map(function(d) {return d.pop});
 
 //Sort the data variable by median age (4 pts.)
 
-function median(age) {
- 
-    age.sort( function(a,b) {return a - b;} );
- 
-    var half = Math.floor(values.length/2);
- 
-    if(values.length % 2)
-        return values[half];
-    else
-        return (values[half-1] + values[half]) / 2.0;
-}
+data.sort(function(a,b) {return Number(a.age) > Number(b.age)});
 
-data.sort();
+//Based on this, what are the cities with the youngest/oldest median ages? (2 pts.) = Seattle,Spokane,Tacoma,Vancouver,Bellevue e.t.c.
 
-//Based on this, what are the cities with the youngest/oldest median ages? (2 pts.)
-
- 
+console.log("The cities with the youngest median age is " + city_names)
 
 //Write a function called "description" that takes in an object (one element from the data array) and constructs the following sentence (4 pts.):
 
 
 //"The median age in " {city} " is " {median age}"
 
+ var description = function (city) {
  
+          return "The median age in " + city.city + " is " + city.age + " years "
+}
 
-//Pass one of the data elements to your function and view the results
 
- 
+//Pass one of the data elements to your function and view the results: The median age in  Bellingham is 31.3 
+
+console.log(description (data[11]))
 
 //Using the array filter functionality, create an array called "maleCities" that has the names of cities where there are more men than women (3 pts.)
+var maleCities = data.filter(function(d) {return d.males>d.females});
 
- 
 
-//How many of the top 100 cities have more males than females?
+//How many of the top 100 cities have more males than females? = 29
+console.log(maleCities.length)
+	
